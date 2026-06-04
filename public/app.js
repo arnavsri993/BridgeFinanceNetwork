@@ -35,11 +35,11 @@ const chapters = [
 
 const openRoles = [
   {
-    title: "Founding Web Developer Intern",
-    team: "Web Development",
-    commitment: "Part-time, student-led build cycle",
+    title: "Financial Analyst Interns",
+    team: "Finance",
+    commitment: "Part-time, student-led analyst role",
     description:
-      "Help turn the public site, member portal, resources, and authenticated workflows into a reliable production experience.",
+      "Support BFN's finance work through company research, market updates, investment writeups, and internal analyst projects.",
     link: "https://forms.gle/u12GhM5b8QyzqzgJ7"
   }
 ];
@@ -63,6 +63,88 @@ const resources = [
   ["Programs", "Internal tracks and learning sequences created for members."]
 ];
 
+const pulseItems = [
+  ["Applications", "Financial Analyst Interns", "Open"],
+  ["Chapters", "3 active markets", "Live"],
+  ["Resources", "BFN guides and tools", "Building"],
+  ["Portfolio", "Paper trading surface", "Ready"]
+];
+
+const tapeItems = [
+  "BFN Guides",
+  "Equity Research",
+  "Case Competitions",
+  "Financial Analyst Interns",
+  "Chapter Markets",
+  "Speaker Sessions",
+  "Member Tiers",
+  "Paper Portfolio"
+];
+
+const bentoFeatures = [
+  {
+    label: "Portal",
+    title: "Member operating system",
+    body: "A structured portal for opportunities, curriculum, resources, competitions, speakers, and profile history.",
+    metric: "7",
+    metricLabel: "portal routes",
+    kind: "dashboard",
+    span: "wide"
+  },
+  {
+    label: "Learning",
+    title: "BFN-made resources",
+    body: "Original guides, tools, videos, and programs stay organized without claiming podcasts or reading lists.",
+    metric: "4",
+    metricLabel: "resource lanes",
+    kind: "stack"
+  },
+  {
+    label: "Career",
+    title: "Apply with clarity",
+    body: "Open roles stay public while approved members receive registration codes for private portal access.",
+    metric: "1",
+    metricLabel: "open role",
+    kind: "pipeline"
+  },
+  {
+    label: "Network",
+    title: "Chapters and teams",
+    body: "School chapters, team roles, and member tiers make the student network feel active and navigable.",
+    metric: "3",
+    metricLabel: "chapter markets",
+    kind: "map",
+    span: "wide"
+  }
+];
+
+const testimonials = [
+  {
+    quote:
+      "BFN gives students a clear place to turn ambition into work: research, competitions, resources, and peer accountability.",
+    name: "Member perspective",
+    designation: "Research and competitions",
+    initials: "RC",
+    accent: "Research"
+  },
+  {
+    quote:
+      "The strongest part is the mix of curated opportunities and people who are serious about improving together.",
+    name: "Member perspective",
+    designation: "Opportunities and programs",
+    initials: "OP",
+    accent: "Access"
+  },
+  {
+    quote:
+      "Chapters make the network feel local while the portal keeps the full member experience organized in one place.",
+    name: "Member perspective",
+    designation: "Chapter growth",
+    initials: "CG",
+    accent: "Chapters"
+  }
+];
+
 const faqs = [
   ["What is BFN?", "Bridge Finance Network is a student-led nonprofit community for finance education, competitions, opportunities, and career preparation."],
   ["Do I need finance experience?", "No. BFN is built for motivated students at different starting points, from first exposure to advanced research and modeling."],
@@ -72,7 +154,7 @@ const faqs = [
   ["What are the tiers?", "BFN uses Intern, Analyst, Associate, and Senior Associate tiers to reflect contribution level and advancement."],
   ["Is BFN open to all grade levels?", "The network is student-focused and evaluates applicants by interest, commitment, and role fit."],
   ["How do chapters work?", "School chapters bring BFN programming, events, and community to local student groups."],
-  ["Who do I contact with questions?", "Email bridgefinancenetwork@gmail.com for general questions or afu8881@bths.edu for internal follow-up."]
+  ["Who do I contact with questions?", "Email bridgefinancenetwork@gmail.com for general questions."]
 ];
 
 const portalLinks = [
@@ -115,6 +197,7 @@ const meta = {
 const $app = document.querySelector("#app");
 const $nav = document.querySelector("[data-nav]");
 const $toggle = document.querySelector("[data-menu-toggle]");
+let testimonialTimer = null;
 
 function escapeHtml(value) {
   return String(value)
@@ -163,6 +246,148 @@ function lockedCard([title, body]) {
   return card("Locked preview", title, body, `<div class="inline-actions">${button("/login", "Sign in", "secondary")}</div>`);
 }
 
+function heroPulsePanel() {
+  return `
+    <aside class="hero-terminal" aria-label="Bridge Finance Network status snapshot">
+      <div class="terminal-topline">
+        <span>Network pulse</span>
+        <strong>Live preview</strong>
+      </div>
+      <div class="terminal-rows">
+        ${pulseItems.map(([label, value, status]) => `
+          <div class="terminal-row">
+            <span>${escapeHtml(label)}</span>
+            <strong>${escapeHtml(value)}</strong>
+            <em>${escapeHtml(status)}</em>
+          </div>
+        `).join("")}
+      </div>
+      <div class="terminal-chart" aria-hidden="true">
+        <span style="--height: 42%"></span>
+        <span style="--height: 68%"></span>
+        <span style="--height: 55%"></span>
+        <span style="--height: 84%"></span>
+        <span style="--height: 74%"></span>
+        <span style="--height: 92%"></span>
+      </div>
+    </aside>
+  `;
+}
+
+function signalTape() {
+  const content = tapeItems
+    .concat(tapeItems)
+    .map((item) => `<span>${escapeHtml(item)}</span>`)
+    .join("");
+  return `
+    <section class="signal-tape" aria-label="BFN site highlights">
+      <div class="signal-track">${content}</div>
+    </section>
+  `;
+}
+
+function bentoVisual(kind) {
+  if (kind === "dashboard") {
+    return `
+      <div class="mini-dashboard" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <div></div><div></div><div></div>
+      </div>
+    `;
+  }
+  if (kind === "pipeline") {
+    return `
+      <div class="mini-pipeline" aria-hidden="true">
+        <span>Apply</span><span>Review</span><span>Code</span>
+      </div>
+    `;
+  }
+  if (kind === "map") {
+    return `
+      <div class="mini-map" aria-hidden="true">
+        <span>MO</span><span>FL</span><span>NJ</span>
+      </div>
+    `;
+  }
+  return `
+    <div class="mini-stack" aria-hidden="true">
+      <span>Guides</span><span>Tools</span><span>Videos</span><span>Programs</span>
+    </div>
+  `;
+}
+
+function bentoCard({ label, title, body, metric, metricLabel, kind, span = "" }) {
+  return `
+    <article class="bento-card ${span}">
+      <div>
+        <span class="card-label">${escapeHtml(label)}</span>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(body)}</p>
+      </div>
+      <div class="bento-bottom">
+        <div class="bento-metric"><strong>${escapeHtml(metric)}</strong><span>${escapeHtml(metricLabel)}</span></div>
+        ${bentoVisual(kind)}
+      </div>
+    </article>
+  `;
+}
+
+function arrowIcon(direction) {
+  const path =
+    direction === "next"
+      ? "M9 5l7 7-7 7M15 12H4"
+      : "M15 5l-7 7 7 7M9 12h11";
+  return `
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="${path}"></path>
+    </svg>
+  `;
+}
+
+function testimonialSection() {
+  return `
+    <section class="section testimonial-section">
+      <div class="section-inner testimonial-shell" data-testimonials data-autoplay="true">
+        <div class="testimonial-media" aria-hidden="true">
+          <div class="testimonial-portrait" data-testimonial-portrait>
+            <span data-testimonial-initials>${escapeHtml(testimonials[0].initials)}</span>
+            <small data-testimonial-accent>${escapeHtml(testimonials[0].accent)}</small>
+          </div>
+        </div>
+        <div class="testimonial-copy">
+          <p class="eyebrow">Member perspectives</p>
+          <h2>Built around contribution, not passive membership.</h2>
+          <p class="lead">Members work across programs, curriculum, finance, resources, web development, operations, marketing, and partnerships.</p>
+          <div class="testimonial-slider" aria-live="polite">
+            ${testimonials.map((testimonial, index) => `
+              <article class="testimonial-slide ${index === 0 ? "active" : ""}" data-testimonial-slide aria-hidden="${index === 0 ? "false" : "true"}">
+                <blockquote>${escapeHtml(testimonial.quote)}</blockquote>
+                <div class="testimonial-author">
+                  <strong>${escapeHtml(testimonial.name)}</strong>
+                  <span>${escapeHtml(testimonial.designation)}</span>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+          <div class="testimonial-actions">
+            <button class="testimonial-arrow" type="button" aria-label="Previous testimonial" data-testimonial-prev>${arrowIcon("prev")}</button>
+            <div class="testimonial-dots" role="tablist" aria-label="Choose testimonial">
+              ${testimonials.map((testimonial, index) => `
+                <button class="testimonial-dot ${index === 0 ? "active" : ""}" type="button" role="tab" aria-selected="${index === 0 ? "true" : "false"}" aria-label="Show ${escapeHtml(testimonial.designation)} testimonial" data-testimonial-dot="${index}"></button>
+              `).join("")}
+            </div>
+            <button class="testimonial-arrow" type="button" aria-label="Next testimonial" data-testimonial-next>${arrowIcon("next")}</button>
+          </div>
+          <div class="inline-actions">
+            ${button("/team", "Meet the team", "dark")}
+            ${button("/about", "Read the mission", "secondary")}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderHome() {
   return `
     <section class="hero">
@@ -176,6 +401,7 @@ function renderHome() {
             ${button("/open-roles", "Join BFN", "ghost")}
           </div>
         </div>
+        ${heroPulsePanel()}
       </div>
     </section>
 
@@ -185,6 +411,8 @@ function renderHome() {
       </div>
     </section>
 
+    ${signalTape()}
+
     <section class="section">
       <div class="section-inner section-header">
         <div>
@@ -193,10 +421,8 @@ function renderHome() {
         </div>
         <p>BFN combines public credibility with a private member portal. Prospective members can learn the mission and apply publicly; approved members unlock opportunities, curriculum, resources, speakers, and profile/tier tools.</p>
       </div>
-      <div class="section-inner grid cols-3">
-        ${card("Learn", "Curriculum and BFN-made resources", "Lessons, original guides, tools, videos, and speaker recordings give members a practical base for finance work.")}
-        ${card("Compete", "Case studies and events", "Competitions, info sessions, and chapter meetups help students practice judgment and communicate finance ideas clearly.")}
-        ${card("Advance", "Tiers and leadership", "Member tiers and team roles create a visible path from intern-level contribution to senior associate responsibility.")}
+      <div class="section-inner bento-grid">
+        ${bentoFeatures.map(bentoCard).join("")}
       </div>
     </section>
 
@@ -213,23 +439,7 @@ function renderHome() {
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner split">
-        <div>
-          <p class="eyebrow">Social proof</p>
-          <h2>Built around contribution, not passive membership.</h2>
-          <p class="lead">Members work across programs, curriculum, finance, resources, web development, operations, marketing, and partnerships. The site is structured so every team can publish updates without confusing the public and portal layers.</p>
-          <div class="inline-actions">
-            ${button("/team", "Meet the team", "dark")}
-            ${button("/about", "Read the mission", "secondary")}
-          </div>
-        </div>
-        <div class="grid">
-          ${card("Member voice", "A network with direction", "BFN gives students a clear place to turn ambition into work: research, competitions, resources, and peer accountability.")}
-          ${card("Member voice", "Access that compounds", "The best part is the mix of curated opportunities and people who are serious about improving together.")}
-        </div>
-      </div>
-    </section>
+    ${testimonialSection()}
 
     <section class="section dark">
       <div class="section-inner section-header">
@@ -465,7 +675,6 @@ function renderContact() {
           <p class="eyebrow">Emails</p>
           <h2>Direct contact</h2>
           <p><a href="mailto:bridgefinancenetwork@gmail.com">bridgefinancenetwork@gmail.com</a></p>
-          <p><a href="mailto:afu8881@bths.edu">afu8881@bths.edu</a></p>
         </div>
         <form class="card form" data-form>
           <label>Name<input name="name" autocomplete="name" required></label>
@@ -627,6 +836,67 @@ function wireFilters() {
   });
 }
 
+function wireTestimonials() {
+  if (testimonialTimer) {
+    window.clearInterval(testimonialTimer);
+    testimonialTimer = null;
+  }
+
+  const root = document.querySelector("[data-testimonials]");
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll("[data-testimonial-slide]"));
+  const dots = Array.from(root.querySelectorAll("[data-testimonial-dot]"));
+  const portrait = root.querySelector("[data-testimonial-portrait]");
+  const initials = root.querySelector("[data-testimonial-initials]");
+  const accent = root.querySelector("[data-testimonial-accent]");
+  const previous = root.querySelector("[data-testimonial-prev]");
+  const next = root.querySelector("[data-testimonial-next]");
+  let activeIndex = 0;
+
+  const setActive = (index) => {
+    activeIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === activeIndex;
+      slide.classList.toggle("active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-selected", String(isActive));
+    });
+    if (initials) initials.textContent = testimonials[activeIndex].initials;
+    if (accent) accent.textContent = testimonials[activeIndex].accent;
+    if (portrait) portrait.dataset.state = String(activeIndex % 3);
+  };
+
+  const showPrevious = () => setActive(activeIndex - 1);
+  const showNext = () => setActive(activeIndex + 1);
+
+  previous?.addEventListener("click", showPrevious);
+  next?.addEventListener("click", showNext);
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => setActive(Number(dot.dataset.testimonialDot || 0)));
+  });
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (root.dataset.autoplay === "true" && !reducedMotion && slides.length > 1) {
+    const start = () => {
+      if (!testimonialTimer) testimonialTimer = window.setInterval(showNext, 5000);
+    };
+    const stop = () => {
+      if (testimonialTimer) window.clearInterval(testimonialTimer);
+      testimonialTimer = null;
+    };
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("focusout", start);
+    start();
+  }
+}
+
 function render() {
   const path = normalizedPath();
   const isKnown = routes[path] || path.startsWith("/portal");
@@ -636,6 +906,7 @@ function render() {
   setActiveNav(path);
   wireForms();
   wireFilters();
+  wireTestimonials();
   $app.focus({ preventScroll: true });
   document.body.classList.remove("menu-open");
   $toggle?.setAttribute("aria-expanded", "false");
