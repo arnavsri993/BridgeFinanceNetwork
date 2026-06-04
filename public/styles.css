@@ -90,27 +90,12 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 240px;
+  min-width: 210px;
 }
 
-.brand small {
-  display: block;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 650;
-}
-
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--navy), var(--emerald));
-  color: white;
-  font-size: 13px;
-  font-weight: 900;
+.brand-logo {
+  width: 214px;
+  height: auto;
 }
 
 .site-nav {
@@ -786,8 +771,8 @@ details p {
     min-width: 0;
   }
 
-  .brand small {
-    display: none;
+  .brand-logo {
+    width: min(188px, 52vw);
   }
 
   .hero {
