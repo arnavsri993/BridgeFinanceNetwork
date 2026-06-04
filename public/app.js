@@ -8,7 +8,7 @@ const opportunityCategories = [
   ["Internships", "Curated early finance, business, and research roles."],
   ["Competitions", "Case studies, trading challenges, and pitch formats."],
   ["Programs", "Member-run tracks for research, strategy, and leadership."],
-  ["Resources", "Reading lists, lessons, speakers, and practical tools."]
+  ["Resources", "BFN-made guides, lessons, speakers, and practical tools."]
 ];
 
 const teamMembers = [
@@ -57,11 +57,10 @@ const events = [
 ];
 
 const resources = [
-  ["Tools", "Finance calculators, templates, and market research utilities."],
-  ["Reading Lists", "Books, reports, primers, and articles organized by level."],
-  ["YouTube Channels", "Curated video explainers for valuation, markets, and accounting."],
-  ["Programs", "Internal tracks and learning sequences for members."],
-  ["Podcasts", "Audio resources for markets, investing, and career paths."]
+  ["BFN Guides", "Original explainers, templates, and finance primers created by BFN."],
+  ["Tools", "BFN-built calculators, worksheets, and market research utilities."],
+  ["Video Resources", "BFN-created and approved videos for valuation, markets, and accounting."],
+  ["Programs", "Internal tracks and learning sequences created for members."]
 ];
 
 const faqs = [
@@ -107,7 +106,7 @@ const meta = {
   "/portal/opportunities": ["Portal Opportunities | Bridge Finance Network", "Filter unlocked opportunities by category."],
   "/portal/curriculum": ["Curriculum Hub | Bridge Finance Network", "Finance lessons organized by topic and difficulty."],
   "/portal/competitions": ["Competitions | Bridge Finance Network", "Active case studies, competitions, and submissions."],
-  "/portal/resources": ["Portal Resources | Bridge Finance Network", "Unlocked tools, reading lists, videos, programs, and podcasts."],
+  "/portal/resources": ["Portal Resources | Bridge Finance Network", "Unlocked BFN-created guides, tools, videos, and programs."],
   "/portal/speakers": ["Guest Speakers | Bridge Finance Network", "Portal-exclusive guest speaker recordings."],
   "/portal/profile": ["Profile | Bridge Finance Network", "Member profile, tier status, and promotion history."],
   "/manage-tiers": ["Manage Tiers | Bridge Finance Network", "Restricted HR and MD tier management surface."]
@@ -195,7 +194,7 @@ function renderHome() {
         <p>BFN combines public credibility with a private member portal. Prospective members can learn the mission and apply publicly; approved members unlock opportunities, curriculum, resources, speakers, and profile/tier tools.</p>
       </div>
       <div class="section-inner grid cols-3">
-        ${card("Learn", "Curriculum and resources", "Lessons, reading lists, tools, videos, and speaker recordings give members a practical base for finance work.")}
+        ${card("Learn", "Curriculum and BFN-made resources", "Lessons, original guides, tools, videos, and speaker recordings give members a practical base for finance work.")}
         ${card("Compete", "Case studies and events", "Competitions, info sessions, and chapter meetups help students practice judgment and communicate finance ideas clearly.")}
         ${card("Advance", "Tiers and leadership", "Member tiers and team roles create a visible path from intern-level contribution to senior associate responsibility.")}
       </div>
@@ -523,7 +522,7 @@ function portalContent(path) {
     "/portal/opportunities": ["Opportunities Hub", "Filter internships, competitions, programs, and resources."],
     "/portal/curriculum": ["Curriculum Hub", "Lessons by topic and difficulty with clean lesson URLs."],
     "/portal/competitions": ["Case Studies & Competitions", "Active competitions, submission flow, and past results."],
-    "/portal/resources": ["Resource Library", "Unlocked tools, reading lists, videos, programs, and podcasts."],
+    "/portal/resources": ["Resource Library", "Unlocked BFN-created guides, tools, videos, and programs."],
     "/portal/speakers": ["Guest Speakers", "Recorded sessions organized by topic, industry, or speaker."],
     "/portal/profile": ["Profile", "Member info, current tier, and promotion history."]
   };
