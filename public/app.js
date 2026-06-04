@@ -12,14 +12,20 @@ const opportunityCategories = [
 ];
 
 const teamMembers = [
-  ["Andrew Fu", "Advisor", "Internal Affairs", "Senior Associate"],
+  ["Andrew Fu", "Co-Founder", "Leadership", "Co-Founder"],
   ["Sai Aathish Karthik", "VP", "Web Development", "Senior Associate"],
   ["Sashitej Palla", "VP", "Web Development", "Senior Associate"],
   ["Ackshat Tiwari", "Core Dev", "Web Development", "Senior Associate"],
   ["Kev Wong", "Frontend & UI", "Web Development", "Senior Associate"],
   ["Niranjana Suresh Preethy", "Frontend & UI", "Web Development", "Senior Associate"],
-  ["Arnav Srivastava", "Frontend & UI", "Web Development", "Senior Associate"]
+  ["Arnav Srivastava", "Regular Member", "General Member", "Member"]
 ];
+
+const boardAdvisors = Array.from({ length: 9 }, (_, index) => [
+  `Advisor ${index + 1}`,
+  "Board of Advisors",
+  "Add confirmed advisor name, title, company, photo, and LinkedIn link."
+]);
 
 const chapters = [
   ["Marquette High School", "Chesterfield, MO", "Founding chapter market"],
@@ -250,28 +256,26 @@ function renderAbout() {
           <p>Finance can feel closed off until students already know the vocabulary, the roles, and the people. BFN gives members a structured place to learn, compete, contribute, and grow with peers who are moving in the same direction.</p>
           <p>The public site introduces the network and recruiting path. The member portal becomes the operating system: opportunities, curriculum, resources, guest speakers, competitions, profile history, and tier advancement.</p>
         </div>
-        ${card("Founder", "Andrew Fu", "Co-Founder and MD of Internal Affairs. Andrew is listed first in the advisor and founder structure for BFN's public site.", `<ul class="feature-list"><li><span class="check">+</span><span>Founder section ready for final photo and full bio.</span></li><li><span class="check">+</span><span>Advisor grid can expand as BFN adds confirmed advisors.</span></li></ul>`)}
+        ${card("Founder", "Andrew Fu", "Co-Founder of Bridge Finance Network. Andrew is shown in the founder section, separate from the Board of Advisors.", `<ul class="feature-list"><li><span class="check">+</span><span>Founder section ready for final photo and full bio.</span></li><li><span class="check">+</span><span>Advisor grid now reflects nine board advisor positions.</span></li></ul>`)}
       </div>
     </section>
     <section class="section soft">
       <div class="section-inner section-header">
         <div>
-          <p class="eyebrow">Advisors</p>
-          <h2>Guidance for a student-run organization.</h2>
+          <p class="eyebrow">Board of Advisors</p>
+          <h2>Nine advisor seats for organizational guidance.</h2>
         </div>
-        <p>The advisor surface is intentionally clean: name, role, company or school context, and a LinkedIn-ready slot once final profile links are approved.</p>
+        <p>The board surface is intentionally clean: name, role, company or school context, and a LinkedIn-ready slot once final profile links are approved.</p>
       </div>
       <div class="section-inner grid cols-3">
-        ${card("Advisor", "Andrew Fu", "Co-Founder and MD of Internal Affairs.")}
-        ${card("Advisor slot", "Board member", "Add confirmed advisor title, company, photo, and LinkedIn link.")}
-        ${card("Advisor slot", "Board member", "Add confirmed advisor title, company, photo, and LinkedIn link.")}
+        ${boardAdvisors.map(([name, label, body]) => card(label, name, body)).join("")}
       </div>
     </section>
   `;
 }
 
 function renderTeam() {
-  const filters = ["All", "Internal Affairs", "Web Development"];
+  const filters = ["All", "Leadership", "Web Development", "General Member"];
   return `
     ${pageHero("Team & Members", "A public team surface without exposing private contact data.", "BFN's member page is designed for HR-managed updates, tier badges, team filters, and an Airtable embed once the final public directory URL is approved.")}
     <section class="section">
