@@ -1,21 +1,21 @@
 const stats = [
-  ["200+", "members across the network"],
-  ["3", "active chapter markets"],
+  ["200+", "student members"],
+  ["3", "active chapters"],
   ["4", "opportunity tracks"]
 ];
 
 const opportunityCategories = [
-  ["Internships", "Curated early finance, business, and research roles."],
-  ["Competitions", "Case studies, trading challenges, and pitch formats."],
-  ["Programs", "Member-run tracks for research, strategy, and leadership."],
-  ["Resources", "BFN-made guides, lessons, speakers, and practical tools."]
+  ["Internships", "Finance, business, research, accounting, consulting, investment, and startup roles curated for students."],
+  ["Competitions", "Case studies, stock pitches, trading challenges, valuation contests, and presentation formats."],
+  ["Programs", "Research, strategy, leadership, chapter development, and finance education tracks run by students."],
+  ["Resources", "Guides, templates, lessons, speaker recordings, reading lists, and practical finance tools."]
 ];
 
 const teamMembers = [
   ["Andrew Fu", "Co-Founder", "Leadership", "Co-Founder"],
-  ["Sai Aathish Karthik", "VP", "Web Development", "Senior Associate"],
-  ["Sashitej Palla", "VP", "Web Development", "Senior Associate"],
-  ["Ackshat Tiwari", "Core Dev", "Web Development", "Senior Associate"],
+  ["Sai Aathish Karthik", "VP, Web Development", "Web Development", "Senior Associate"],
+  ["Sashitej Palla", "VP, Web Development", "Web Development", "Senior Associate"],
+  ["Ackshat Tiwari", "Core Developer", "Web Development", "Senior Associate"],
   ["Kev Wong", "Frontend & UI", "Web Development", "Senior Associate"],
   ["Niranjana Suresh Preethy", "Frontend & UI", "Web Development", "Senior Associate"],
   ["Arnav Srivastava", "Regular Member", "General Member", "Member"]
@@ -23,14 +23,14 @@ const teamMembers = [
 
 const boardAdvisors = Array.from({ length: 9 }, (_, index) => [
   `Advisor ${index + 1}`,
-  "Board of Advisors",
-  "Add confirmed advisor name, title, company, photo, and LinkedIn link."
+  "Advisor seat",
+  "Advisor profile coming soon."
 ]);
 
 const chapters = [
-  ["Marquette High School", "Chesterfield, MO", "Founding chapter market"],
-  ["Middleton High School", "Tampa, FL", "Founding chapter market"],
-  ["Bridgewater-Raritan High School", "Bridgewater, NJ", "Founding chapter market"]
+  ["Marquette High School", "Chesterfield, MO", "Active founding chapter"],
+  ["Middleton High School", "Tampa, FL", "Active founding chapter"],
+  ["Bridgewater-Raritan High School", "Bridgewater, NJ", "Active founding chapter"]
 ];
 
 const openRoles = [
@@ -45,29 +45,29 @@ const openRoles = [
 ];
 
 const posts = [
-  ["Week 2 build plan", "June 2026", "Update", "The web team is stabilizing the foundation for public pages, portal routing, Supabase auth, and handoff-ready Figma work."],
-  ["Member portal scope", "June 2026", "Announcement", "BFN's portal will centralize opportunities, curriculum, case competitions, resources, guest speakers, and member tier status."],
-  ["Design system kickoff", "May 2026", "Spotlight", "The UI team started the shared visual language for buttons, cards, badges, locked states, and navigation."]
+  ["Member portal preview", "June 2026", "Update", "BFN is organizing member-only opportunities, curriculum, case competitions, resource access, speaker recordings, and tier information in one private portal."],
+  ["Financial Analyst Interns", "June 2026", "Open role", "BFN is recruiting finance-focused students to support company research, market updates, investment writeups, and internal analyst projects."],
+  ["Chapter growth", "May 2026", "Spotlight", "Founding chapters are helping bring finance education sessions, competitions, and member recruiting to local student communities."]
 ];
 
 const events = [
-  ["Week 2 Web Development Check-In", "June 2026", "Team check-in for demos, blockers, repo decisions, and Week 3 build ownership.", "Portal required"],
   ["BFN Info Session", "Coming soon", "Public session for prospective members covering eligibility, teams, tiers, and the application process.", "Public"],
-  ["Case Competition Launch", "Coming soon", "Member competition format with submission guidance and judging criteria.", "Portal required"]
+  ["Stock Pitch Practice", "Coming soon", "Member session for practicing thesis structure, market research, valuation basics, and presentation feedback.", "Portal required"],
+  ["Case Competition Launch", "Coming soon", "Member competition format with submission guidance, judging criteria, and team deadlines.", "Portal required"]
 ];
 
 const resources = [
-  ["BFN Guides", "Original explainers, templates, and finance primers created by BFN."],
-  ["Tools", "BFN-built calculators, worksheets, and market research utilities."],
-  ["Video Resources", "BFN-created and approved videos for valuation, markets, and accounting."],
-  ["Programs", "Internal tracks and learning sequences created for members."]
+  ["BFN Guides", "Finance primers, recruiting guides, resume templates, interview prep, and market explainers."],
+  ["Tools", "Calculators, worksheets, valuation templates, and market research utilities built for student use."],
+  ["Video Resources", "Accounting, valuation, markets, investing, and career preparation videos approved for members."],
+  ["Programs", "Structured learning tracks across research, strategy, leadership, and finance fundamentals."]
 ];
 
 const pulseItems = [
   ["Applications", "Financial Analyst Interns", "Open"],
-  ["Chapters", "3 active markets", "Live"],
-  ["Resources", "BFN guides and tools", "Building"],
-  ["Portfolio", "Paper trading surface", "Ready"]
+  ["Chapters", "3 founding chapters", "Live"],
+  ["Resources", "Guides, tools, videos", "Member"],
+  ["Portal", "Private member access", "Invite"]
 ];
 
 const tapeItems = [
@@ -75,53 +75,25 @@ const tapeItems = [
   "Equity Research",
   "Case Competitions",
   "Financial Analyst Interns",
-  "Chapter Markets",
+  "Chapter Events",
   "Speaker Sessions",
   "Member Tiers",
-  "Paper Portfolio"
+  "Stock Pitch Practice"
 ];
 
-const bentoFeatures = [
-  {
-    label: "Portal",
-    title: "Member operating system",
-    body: "A structured portal for opportunities, curriculum, resources, competitions, speakers, and profile history.",
-    metric: "7",
-    metricLabel: "portal routes",
-    kind: "dashboard",
-    span: "wide"
-  },
-  {
-    label: "Learning",
-    title: "BFN-made resources",
-    body: "Original guides, tools, videos, and programs stay organized without claiming podcasts or reading lists.",
-    metric: "4",
-    metricLabel: "resource lanes",
-    kind: "stack"
-  },
-  {
-    label: "Career",
-    title: "Apply with clarity",
-    body: "Open roles stay public while approved members receive registration codes for private portal access.",
-    metric: "1",
-    metricLabel: "open role",
-    kind: "pipeline"
-  },
-  {
-    label: "Network",
-    title: "Chapters and teams",
-    body: "School chapters, team roles, and member tiers make the student network feel active and navigable.",
-    metric: "3",
-    metricLabel: "chapter markets",
-    kind: "map",
-    span: "wide"
-  }
+const insideBfnItems = [
+  ["Opportunities", "Curated internship lists, program links, finance role deadlines, and student-friendly application notes."],
+  ["Curriculum", "Finance lessons on accounting, markets, valuation, investing, recruiting, and professional communication."],
+  ["Competitions", "Case competitions, stock pitch practice, trading challenges, valuation contests, and team submissions."],
+  ["Chapters", "Local finance sessions, speaker events, chapter recruiting, and leadership teams at active schools."],
+  ["Resources", "Templates, calculators, worksheets, video lessons, resume prep, and market research tools."],
+  ["Leadership", "Student-run teams across finance, research, web development, resources, operations, marketing, and partnerships."]
 ];
 
 const testimonials = [
   {
     quote:
-      "BFN gives students a clear place to turn ambition into work: research, competitions, resources, and peer accountability.",
+      "BFN gives students a clear place to practice research, join competitions, use finance templates, and work with peers who care about finance.",
     name: "Member perspective",
     designation: "Research and competitions",
     initials: "RC",
@@ -129,7 +101,7 @@ const testimonials = [
   },
   {
     quote:
-      "The strongest part is the mix of curated opportunities and people who are serious about improving together.",
+      "The strongest part is having curated finance opportunities, student-run programs, and a private portal organized in one place.",
     name: "Member perspective",
     designation: "Opportunities and programs",
     initials: "OP",
@@ -146,15 +118,15 @@ const testimonials = [
 ];
 
 const faqs = [
-  ["What is BFN?", "Bridge Finance Network is a student-led nonprofit community for finance education, competitions, opportunities, and career preparation."],
-  ["Do I need finance experience?", "No. BFN is built for motivated students at different starting points, from first exposure to advanced research and modeling."],
-  ["How do I apply?", "Use the public Open Roles page. Application links are visible without a member account."],
-  ["What happens after I apply?", "Approved applicants receive a registration code by email so they can create a member portal account."],
-  ["What is the time commitment?", "Commitment depends on your team and tier. Members should expect recurring updates, projects, and check-ins."],
-  ["What are the tiers?", "BFN uses Intern, Analyst, Associate, and Senior Associate tiers to reflect contribution level and advancement."],
-  ["Is BFN open to all grade levels?", "The network is student-focused and evaluates applicants by interest, commitment, and role fit."],
-  ["How do chapters work?", "School chapters bring BFN programming, events, and community to local student groups."],
-  ["Who do I contact with questions?", "Email bridgefinancenetwork@gmail.com for general questions."]
+  ["What is BFN?", "Bridge Finance Network is a student-led nonprofit helping students learn finance, find curated opportunities, join competitions, and build leadership experience."],
+  ["Who can join?", "BFN is built for motivated students interested in finance, business, research, investing, accounting, consulting, web development, resources, operations, marketing, partnerships, or chapter leadership."],
+  ["Is BFN student-led?", "Yes. Students lead BFN teams, chapter activity, resource development, finance projects, and member programming."],
+  ["What do members get access to?", "Members can access curated opportunity lists, finance lessons, case competitions, stock pitch practice, speaker recordings, templates, tools, and internal programs through the portal."],
+  ["How do I start a chapter?", "Apply to join BFN first. Approved members receive portal access, where they can submit a chapter launch form and review onboarding materials."],
+  ["How does portal access work?", "Applicants apply publicly. Approved applicants receive a registration code by email so they can create a private member portal account."],
+  ["Are resources public or member-only?", "The public site previews the library. Full guides, tools, videos, speaker recordings, templates, and internal links are member-only."],
+  ["How do open roles work?", "Open roles are posted publicly. Each role explains the team, expected work, and application link. BFN reviews applications and follows up by email."],
+  ["Who do I contact with questions?", "Email bridgefinancenetwork@gmail.com for general questions, partnerships, chapter interest, advisor outreach, or member support."]
 ];
 
 const portalLinks = [
@@ -168,17 +140,17 @@ const portalLinks = [
 ];
 
 const meta = {
-  "/": ["Bridge Finance Network", "A student-led nonprofit network for finance education and opportunity access."],
-  "/about": ["About | Bridge Finance Network", "Mission, story, founder section, and advisor structure for BFN."],
-  "/team": ["Team & Members | Bridge Finance Network", "BFN team structure and public member directory surface."],
+  "/": ["Bridge Finance Network", "Helping students break into finance earlier through education, opportunities, competitions, chapters, and a private member portal."],
+  "/about": ["About | Bridge Finance Network", "Mission, founder profile, advisor structure, and credibility points for BFN."],
+  "/team": ["Team & Members | Bridge Finance Network", "Meet the students building BFN across leadership, web development, resources, operations, and member programs."],
   "/opportunities": ["Opportunities | Bridge Finance Network", "Preview BFN opportunity categories before signing into the member portal."],
-  "/chapters": ["Chapters | Bridge Finance Network", "Active chapter markets and the path to start a school chapter."],
+  "/chapters": ["Chapters | Bridge Finance Network", "Active founding chapters and the path to start BFN at your school."],
   "/partners": ["Partners | Bridge Finance Network", "Partnership model for firms and organizations working with BFN."],
   "/open-roles": ["Open Roles | Bridge Finance Network", "Apply to join BFN through publicly visible role listings."],
   "/blog": ["Blog & News | Bridge Finance Network", "BFN updates, recaps, announcements, and member spotlights."],
   "/events": ["Events | Bridge Finance Network", "Upcoming BFN competitions, sessions, and chapter events."],
   "/resources": ["Resource Library | Bridge Finance Network", "Preview BFN resource categories before signing in."],
-  "/portfolio": ["BFN Portfolio | Bridge Finance Network", "Public paper trading portfolio surface for approved equity positions."],
+  "/portfolio": ["BFN Portfolio | Bridge Finance Network", "Preview upcoming student research, chapter work, finance projects, and internal initiatives."],
   "/faq": ["FAQ | Bridge Finance Network", "Common questions about joining BFN, tiers, chapters, and membership."],
   "/contact": ["Contact | Bridge Finance Network", "Contact BFN for general, partnership, press, and chapter inquiries."],
   "/login": ["Member Portal Login | Bridge Finance Network", "Sign into the BFN member portal."],
@@ -244,6 +216,43 @@ function card(label, title, body, extra = "") {
 
 function lockedCard([title, body]) {
   return card("Locked preview", title, body, `<div class="inline-actions">${button("/login", "Sign in", "secondary")}</div>`);
+}
+
+function listItems(items) {
+  return `<ul class="feature-list">${items.map((item) => `<li><span class="check">+</span><span>${escapeHtml(item)}</span></li>`).join("")}</ul>`;
+}
+
+function compactCard(label, title, body, extra = "") {
+  return `
+    <article class="compact-card">
+      ${label ? `<span class="card-label">${escapeHtml(label)}</span>` : ""}
+      <h3>${escapeHtml(title)}</h3>
+      <p>${escapeHtml(body)}</p>
+      ${extra}
+    </article>
+  `;
+}
+
+function statStrip(items = stats) {
+  return `
+    <div class="stat-strip">
+      ${items.map(([number, label]) => `<div><strong>${escapeHtml(number)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}
+    </div>
+  `;
+}
+
+function processSteps(steps) {
+  return `
+    <div class="process-grid">
+      ${steps.map(([title, body], index) => `
+        <article class="process-step">
+          <span>${index + 1}</span>
+          <h3>${escapeHtml(title)}</h3>
+          <p>${escapeHtml(body)}</p>
+        </article>
+      `).join("")}
+    </div>
+  `;
 }
 
 function heroPulsePanel() {
@@ -393,9 +402,9 @@ function renderHome() {
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Finance education, access, and ambition</p>
-          <h1>Bridge Finance Network</h1>
-          <p>BFN connects driven students with finance curriculum, competitive experiences, professional resources, and a member community built for real career momentum.</p>
+          <p class="eyebrow">Student-led nonprofit finance network</p>
+          <h1>Helping students break into finance earlier.</h1>
+          <p>Bridge Finance Network gives ambitious students access to finance education, curated opportunities, competitions, leadership roles, and a private member network.</p>
           <div class="actions">
             ${button("/opportunities", "Explore Opportunities", "primary")}
             ${button("/open-roles", "Join BFN", "ghost")}
@@ -416,26 +425,26 @@ function renderHome() {
     <section class="section">
       <div class="section-inner section-header">
         <div>
-          <p class="eyebrow">What BFN does</p>
-          <h2>A finance network for students who want a real path in.</h2>
+          <p class="eyebrow">Inside BFN</p>
+          <h2>Finance learning, recruiting support, and student leadership in one network.</h2>
         </div>
-        <p>BFN combines public credibility with a private member portal. Prospective members can learn the mission and apply publicly; approved members unlock opportunities, curriculum, resources, speakers, and profile/tier tools.</p>
+        <p>Prospective members can learn about the organization and apply publicly. Approved members unlock the portal for opportunity links, finance lessons, competition materials, speaker recordings, resources, and profile tools.</p>
       </div>
-      <div class="section-inner bento-grid">
-        ${bentoFeatures.map(bentoCard).join("")}
+      <div class="section-inner grid cols-3">
+        ${insideBfnItems.map(([title, body]) => compactCard("Inside BFN", title, body)).join("")}
       </div>
     </section>
 
     <section class="section soft">
       <div class="section-inner section-header">
         <div>
-          <p class="eyebrow">Opportunity hub preview</p>
-          <h2>Public preview, member access.</h2>
+          <p class="eyebrow">Member benefits</p>
+          <h2>What approved members can use.</h2>
         </div>
-        <p>The public site shows the categories. The portal protects the actual links, applications, resources, and recordings for approved members.</p>
+        <p>BFN keeps public recruiting simple while reserving direct links, deadlines, forms, templates, recordings, and internal programs for approved members.</p>
       </div>
       <div class="section-inner grid cols-4">
-        ${opportunityCategories.map(lockedCard).join("")}
+        ${opportunityCategories.map(([title, body]) => compactCard("Portal preview", title, body)).join("")}
       </div>
     </section>
 
@@ -456,28 +465,40 @@ function renderHome() {
 
 function renderAbout() {
   return `
-    ${pageHero("About", "Student-led finance education with a member engine behind it.", "BFN exists to make high-quality finance learning, competitions, and career preparation more accessible for motivated students.")}
+    ${pageHero("About", "Student-led finance education for motivated students.", "BFN makes finance more accessible through lessons, competitions, curated opportunities, chapter events, and member-run programs.")}
+    <section class="section compact-section">
+      <div class="section-inner">
+        ${statStrip([["200+", "members"], ["3", "active chapters"], ["9", "advisor seats"], ["Nonprofit", "student-led"]])}
+      </div>
+    </section>
     <section class="section">
       <div class="section-inner split">
         <div class="text-stack">
           <p class="eyebrow">Mission</p>
-          <h2>Build the bridge between curiosity and credible experience.</h2>
-          <p>Finance can feel closed off until students already know the vocabulary, the roles, and the people. BFN gives members a structured place to learn, compete, contribute, and grow with peers who are moving in the same direction.</p>
-          <p>The public site introduces the network and recruiting path. The member portal becomes the operating system: opportunities, curriculum, resources, guest speakers, competitions, profile history, and tier advancement.</p>
+          <h2>Give students a practical starting point in finance.</h2>
+          <p>Finance can feel closed off until students already know the vocabulary, roles, and recruiting expectations. BFN gives members a structured place to learn the basics, practice research, join competitions, and find student-friendly opportunities.</p>
+          <p>The public site explains the network and application path. The private portal organizes opportunity links, finance lessons, speaker recordings, resources, competition materials, and member profile tools.</p>
         </div>
-        ${card("Founder", "Andrew Fu", "Co-Founder of Bridge Finance Network. Andrew is shown in the founder section, separate from the Board of Advisors.", `<ul class="feature-list"><li><span class="check">+</span><span>Founder section ready for final photo and full bio.</span></li><li><span class="check">+</span><span>Advisor grid now reflects nine board advisor positions.</span></li></ul>`)}
+        <article class="founder-card">
+          <div class="profile-placeholder" aria-hidden="true"><span>AF</span></div>
+          <div>
+            <span class="card-label">Co-Founder</span>
+            <h3>Andrew Fu</h3>
+            <p>Andrew Fu is the Co-Founder of Bridge Finance Network. He helps lead BFN's development across finance education, student programming, member operations, and advisor outreach, with a focus on making finance more accessible to motivated students.</p>
+          </div>
+        </article>
       </div>
     </section>
     <section class="section soft">
       <div class="section-inner section-header">
         <div>
           <p class="eyebrow">Board of Advisors</p>
-          <h2>Nine advisor seats for organizational guidance.</h2>
+          <h2>Nine advisor seats for guidance and outreach.</h2>
         </div>
-        <p>The board surface is intentionally clean: name, role, company or school context, and a LinkedIn-ready slot once final profile links are approved.</p>
+        <p>Advisor profiles will highlight confirmed mentors, professional context, and support for BFN programming as those details are approved.</p>
       </div>
-      <div class="section-inner grid cols-3">
-        ${boardAdvisors.map(([name, label, body]) => card(label, name, body)).join("")}
+      <div class="section-inner advisor-grid">
+        ${boardAdvisors.map(([name, label, body]) => compactCard(label, name, body)).join("")}
       </div>
     </section>
   `;
@@ -486,7 +507,7 @@ function renderAbout() {
 function renderTeam() {
   const filters = ["All", "Leadership", "Web Development", "General Member"];
   return `
-    ${pageHero("Team & Members", "A public team surface without exposing private contact data.", "BFN's member page is designed for HR-managed updates, tier badges, team filters, and an Airtable embed once the final public directory URL is approved.")}
+    ${pageHero("Team & Members", "Students building Bridge Finance Network.", "Meet the students building Bridge Finance Network across leadership, web development, operations, resources, and member programs.")}
     <section class="section">
       <div class="section-inner">
         <div class="filters" data-filters>
@@ -494,27 +515,25 @@ function renderTeam() {
         </div>
         <div class="grid cols-3" data-team-grid>
           ${teamMembers.map(([name, role, team, tier]) => `
-            <article class="card" data-team="${team}">
-              <span class="badge tier-senior">${tier}</span>
+            <article class="member-card" data-team="${team}">
               <h3>${escapeHtml(name)}</h3>
-              <p><strong>${escapeHtml(role)}</strong><br>${escapeHtml(team)}</p>
+              <p>${escapeHtml(role)}</p>
+              <div class="member-badges">
+                <span class="badge tier-senior">${escapeHtml(tier)}</span>
+                <span class="badge team-badge">${escapeHtml(team)}</span>
+              </div>
             </article>
           `).join("")}
         </div>
       </div>
     </section>
-    <section class="section mint">
-      <div class="section-inner split">
+    <section class="section mint compact-section">
+      <div class="section-inner section-header compact-header">
         <div>
-          <p class="eyebrow">Directory source</p>
-          <h2>Airtable-ready member directory.</h2>
-          <p class="lead">The production member directory should use HR's approved Airtable embed so updates do not require code changes.</p>
+          <p class="eyebrow">Member Directory</p>
+          <h2>Approved member profiles coming soon.</h2>
         </div>
-        <div class="card">
-          <span class="card-label">Embed slot</span>
-          <h3>Public Airtable table</h3>
-          <p>Add the approved Airtable iframe URL through the AIRTABLE_EMBED_URL environment key when the final public view is ready.</p>
-        </div>
+        <p>BFN's public directory will highlight approved members, leadership roles, team contributions, and chapter involvement.</p>
       </div>
     </section>
   `;
@@ -522,9 +541,33 @@ function renderTeam() {
 
 function renderOpportunities() {
   return `
-    ${pageHero("Opportunities", "A clear preview of what members unlock.", "Public visitors see the structure. Approved members sign in for direct links, deadlines, forms, and internal programs.")}
+    ${pageHero("Opportunities", "Curated finance opportunities for BFN members.", "BFN members get access to curated finance opportunities, competitions, internal programs, and practical resources designed for students building early finance experience.")}
     <section class="section">
-      <div class="section-inner grid cols-4">${opportunityCategories.map(lockedCard).join("")}</div>
+      <div class="section-inner notice">
+        <strong>Member-only access:</strong>
+        <span>The public page shows the opportunity categories. Approved members sign in to view direct links, deadlines, forms, and internal program details.</span>
+      </div>
+      <div class="section-inner grid cols-4">
+        ${opportunityCategories.map(([title, body]) => compactCard("Opportunity track", title, body)).join("")}
+      </div>
+    </section>
+    <section class="section soft">
+      <div class="section-inner section-header">
+        <div>
+          <p class="eyebrow">How access works</p>
+          <h2>Apply publicly, then use the member portal after approval.</h2>
+        </div>
+        <p>BFN keeps applications open on the public site and protects member-only links, deadlines, forms, and internal programs inside the portal.</p>
+      </div>
+      <div class="section-inner">
+        ${processSteps([
+          ["Apply", "Apply through an open role or chapter pathway using the public application link."],
+          ["Get approved", "BFN reviews fit, interest, team needs, and expected contribution level."],
+          ["Receive access", "Approved applicants receive a registration code by email for the private portal."],
+          ["Use member links", "Members can browse opportunities, competitions, forms, resources, and internal programs."]
+        ])}
+        <div class="actions">${button("/open-roles", "View open roles", "dark")}${button("/login", "Sign in to portal", "secondary")}</div>
+      </div>
     </section>
   `;
 }
@@ -534,20 +577,40 @@ function renderChapters() {
     ${pageHero("Chapters", "School chapters make BFN local.", "Chapters bring BFN programming, finance education, competitions, and member activity into student communities.")}
     <section class="section">
       <div class="section-inner grid cols-3">
-        ${chapters.map(([school, city, status]) => card("Active chapter market", school, `${city}. ${status}.`)).join("")}
+        ${chapters.map(([school, city, status]) => compactCard(status, school, city)).join("")}
       </div>
     </section>
     <section class="section soft">
+      <div class="section-inner section-header">
+        <div>
+          <p class="eyebrow">What chapters do</p>
+          <h2>Bring BFN programming into local student communities.</h2>
+        </div>
+        <p>Chapter teams help students learn finance locally while staying connected to BFN's broader member network and portal.</p>
+      </div>
+      <div class="section-inner grid cols-3">
+        ${[
+          "Run local finance education sessions",
+          "Host or promote competitions",
+          "Recruit motivated students",
+          "Organize speaker and career events",
+          "Build chapter leadership teams",
+          "Connect members to the BFN portal"
+        ].map((item) => compactCard("Chapter activity", item, "Designed for students who want practical finance exposure at school.")).join("")}
+      </div>
+    </section>
+    <section class="section">
       <div class="section-inner split">
         <div>
           <p class="eyebrow">Start a chapter</p>
-          <h2>Chapter applications route through the member portal.</h2>
-          <p class="lead">Students interested in starting a chapter should apply first, then unlock the chapter form after member registration.</p>
+          <h2>Interested in launching BFN at your school?</h2>
+          <p class="lead">Apply to join BFN first. Approved members receive access to the portal, where they can submit a chapter launch form and review onboarding materials.</p>
+          <div class="inline-actions">${button("/open-roles", "Apply to Join", "dark")}${button("/login", "Member Portal", "secondary")}</div>
         </div>
-        <div class="card locked">
-          <h3>Chapter form</h3>
-          <p>Registration required to access the full chapter launch form and internal onboarding materials.</p>
-          <div class="inline-actions">${button("/login", "Sign in", "dark")}</div>
+        <div class="card">
+          <span class="card-label">Chapter pathway</span>
+          <h3>Launch requirements</h3>
+          ${listItems(["A motivated student lead", "A plan for local finance sessions", "Interest in recruiting members", "Willingness to coordinate with BFN leadership"])}
         </div>
       </div>
     </section>
@@ -580,9 +643,24 @@ function renderPartners() {
 }
 
 function renderOpenRoles() {
+  const hiringTeams = ["Finance", "Research", "Web Development", "Resources", "Operations", "Marketing", "Partnerships", "Chapter Leadership"];
   return `
-    ${pageHero("Open Roles", "Apply first. Register after approval.", "Role listings are public. Applicants do not need a registration code to apply; approved applicants receive one by email.")}
+    ${pageHero("Join BFN", "Apply to join a student-led finance network.", "BFN is open to motivated students who want to learn finance, contribute to member programs, support chapters, build resources, and take on leadership responsibilities.")}
+    <section class="section compact-section">
+      <div class="section-inner grid cols-3">
+        ${compactCard("Why join", "Finance education", "Learn finance vocabulary, markets, accounting, valuation, investing, and recruiting basics with peers.")}
+        ${compactCard("Why join", "Real contribution", "Work on research, resources, chapter events, competitions, web development, operations, or partnerships.")}
+        ${compactCard("Why join", "Member access", "Approved members receive portal access for opportunities, internal programs, resources, and speaker recordings.")}
+      </div>
+    </section>
     <section class="section">
+      <div class="section-inner section-header compact-header">
+        <div>
+          <p class="eyebrow">Current open roles</p>
+          <h2>Financial Analyst Interns</h2>
+        </div>
+        <p>Applicants can apply publicly. Approved applicants receive a registration code by email to create a member portal account.</p>
+      </div>
       <div class="section-inner grid">
         ${openRoles.map((role) => `
           <article class="card emphasis">
@@ -596,12 +674,42 @@ function renderOpenRoles() {
         `).join("")}
       </div>
     </section>
+    <section class="section soft">
+      <div class="section-inner section-header">
+        <div>
+          <p class="eyebrow">Teams hiring</p>
+          <h2>BFN has student-run teams across finance and operations.</h2>
+        </div>
+        <p>Role availability changes over time. Current applicants can show interest in teams that match their skills and goals.</p>
+      </div>
+      <div class="section-inner tag-grid">
+        ${hiringTeams.map((team) => `<span>${escapeHtml(team)}</span>`).join("")}
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-inner section-header">
+        <div>
+          <p class="eyebrow">Application process</p>
+          <h2>What happens after applying.</h2>
+        </div>
+        <p>BFN reviews applications for interest, reliability, role fit, and potential contribution to student programming.</p>
+      </div>
+      <div class="section-inner">
+        ${processSteps([
+          ["Submit application", "Use the role link and describe your finance interests, skills, and preferred teams."],
+          ["BFN review", "The team reviews applications based on current needs and role fit."],
+          ["Approval email", "Approved applicants receive next steps and a portal registration code by email."],
+          ["Start contributing", "Members join the portal, review team expectations, and begin work on BFN projects."]
+        ])}
+        <div class="actions">${button(openRoles[0].link, "Apply Now", "dark", `target="_blank" rel="noreferrer"`)}${button("/login", "View Member Portal", "secondary")}</div>
+      </div>
+    </section>
   `;
 }
 
 function renderBlog() {
   return `
-    ${pageHero("Blog & News", "Updates, recaps, spotlights, and announcements.", "The v1 content model is intentionally simple: hard-coded post entries that the web team can update without a CMS.")}
+    ${pageHero("Blog & News", "Updates, recaps, spotlights, and announcements.", "Follow BFN updates across member programming, open roles, chapter growth, competitions, and finance education.")}
     <section class="section">
       <div class="section-inner grid cols-3">
         ${posts.map(([title, date, category, excerpt], index) => card(index === 0 ? "Featured" : category, title, `${date}. ${excerpt}`, `<div class="inline-actions">${button("#", "Read more", "secondary")}</div>`)).join("")}
@@ -623,33 +731,56 @@ function renderEvents() {
 
 function renderResources() {
   return `
-    ${pageHero("Resource Library Preview", "See the categories before signing in.", "Members unlock the full resource library inside the portal. The public page shows what BFN offers without exposing private links.")}
+    ${pageHero("Resource Library", "A serious learning library for student finance members.", "BFN's resource library helps members build practical finance knowledge through guides, templates, tools, video lessons, and structured learning tracks.")}
     <section class="section">
-      <div class="section-inner grid cols-3">${resources.map(lockedCard).join("")}</div>
+      <div class="section-inner notice">
+        <strong>Member-only access:</strong>
+        <span>The public site previews the library. Approved members sign in to use full guides, tools, videos, speaker recordings, templates, and internal links.</span>
+      </div>
+      <div class="section-inner grid cols-4">${resources.map(([title, body]) => compactCard("Resource type", title, body)).join("")}</div>
+    </section>
+    <section class="section soft">
+      <div class="section-inner section-header">
+        <div>
+          <p class="eyebrow">Built for students</p>
+          <h2>Practical material for learning, applying, and competing.</h2>
+        </div>
+        <p>Resources are organized around the work students actually need to do: learn terms, prepare for roles, practice technical concepts, and present ideas clearly.</p>
+      </div>
+      <div class="section-inner grid cols-3">
+        ${[
+          "Learn finance vocabulary",
+          "Prepare for competitions",
+          "Track opportunities",
+          "Build stronger applications",
+          "Practice technical concepts",
+          "Use finance templates"
+        ].map((item) => compactCard("Student use case", item, "Designed to support early finance learning and member projects.")).join("")}
+      </div>
+      <div class="section-inner actions">${button("/open-roles", "Join BFN", "dark")}${button("/login", "Sign in to portal", "secondary")}</div>
     </section>
   `;
 }
 
 function renderPortfolio() {
   return `
-    ${pageHero("BFN Portfolio", "A public paper trading surface for approved positions.", "The master sheet notes that portfolio updates are not necessary yet, so this page is ready without fabricating active holdings.")}
+    ${pageHero("BFN Portfolio", "Student research and project work coming soon.", "BFN's portfolio will highlight student research, chapter work, finance projects, web development, and internal initiatives as they are approved for publication.")}
     <section class="section">
       <div class="section-inner">
         <div class="grid cols-3">
-          ${card("Summary", "Total value", "Pending first approved position set.")}
-          ${card("Summary", "Total gain/loss", "Pending first approved position set.")}
-          ${card("Summary", "Active positions", "0 published positions.")}
+          ${compactCard("Research", "Research portfolio coming soon.", "Member research, stock pitch writeups, market notes, and finance analysis will be published here after approval.")}
+          ${compactCard("Projects", "Member projects will be published here.", "BFN will use this page to highlight web development work, finance tools, templates, and student-led initiatives.")}
+          ${compactCard("Chapters", "Chapter work will be featured here.", "Chapter events, local finance sessions, competition recaps, and leadership projects will appear as the network grows.")}
         </div>
-        <div class="table-wrap" style="margin-top: 22px;">
-          <table>
-            <thead>
-              <tr><th>Ticker</th><th>Company</th><th>Entry</th><th>Current</th><th>Gain/Loss</th><th>Thesis</th></tr>
-            </thead>
-            <tbody>
-              <tr><td colspan="6"><div class="empty-state">No approved equity positions have been published yet.</div></td></tr>
-            </tbody>
-          </table>
+      </div>
+    </section>
+    <section class="section soft">
+      <div class="section-inner section-header compact-header">
+        <div>
+          <p class="eyebrow">What to expect</p>
+          <h2>Approved work, not unfinished drafts.</h2>
         </div>
+        <p>BFN will publish student work only after it is reviewed for clarity, quality, and fit with the public site.</p>
       </div>
     </section>
   `;
@@ -668,18 +799,23 @@ function renderFaq() {
 
 function renderContact() {
   return `
-    ${pageHero("Contact", "Reach the right BFN team.", "Use the form for general, partnership, press, or chapter inquiries. Email links remain visible for direct contact.")}
+    ${pageHero("Contact", "Reach Bridge Finance Network.", "Use the contact form for general questions, partnerships, advisor outreach, chapters, press, or member support.")}
     <section class="section">
       <div class="section-inner split">
         <div class="text-stack">
-          <p class="eyebrow">Emails</p>
+          <p class="eyebrow">Primary email</p>
           <h2>Direct contact</h2>
           <p><a href="mailto:bridgefinancenetwork@gmail.com">bridgefinancenetwork@gmail.com</a></p>
+          <div class="grid compact-list">
+            ${compactCard("General", "Questions about BFN", "Ask about membership, open roles, the portal, resources, or competitions.")}
+            ${compactCard("Partnerships", "Firms, advisors, and schools", "Reach out about speakers, mentorship, competitions, resources, sponsorships, or school partnerships.")}
+            ${compactCard("Chapters", "Start BFN at your school", "Students interested in launching a chapter can ask about the application and onboarding path.")}
+          </div>
         </div>
         <form class="card form" data-form>
           <label>Name<input name="name" autocomplete="name" required></label>
           <label>Email<input type="email" name="email" autocomplete="email" required></label>
-          <label>Subject<select name="subject"><option>General</option><option>Partnership</option><option>Press</option><option>Chapter Inquiry</option></select></label>
+          <label>Subject<select name="subject"><option>General Inquiry</option><option>Partnerships / Advisors</option><option>Chapter Inquiry</option><option>Member Support</option></select></label>
           <label>Message<textarea name="message" required></textarea></label>
           <button class="button dark" type="submit">Submit inquiry</button>
           <div class="form-status" role="status"></div>
@@ -745,9 +881,9 @@ function portalContent(path) {
         </nav>
         <div class="grid cols-2">
           ${card("Member-only", title, lead)}
-          ${card("Data source", "Hard-coded v1 content", "The master sheet calls for TypeScript-style data files in v1, with Supabase reserved for auth, profiles, registration codes, and tier history.")}
-          ${card("Access", "Protected route", "Unauthenticated users should redirect to login once Supabase auth is wired.")}
-          ${card("Next integration", "Supabase session", "Connect profile, tier, and role checks through server-side auth before using this for real members.")}
+          ${card("Opportunities", "Curated member links", "Approved members can use the portal for opportunity links, application notes, deadlines, and internal programs.")}
+          ${card("Resources", "Learning materials", "Members can find BFN guides, tools, video resources, speaker recordings, and structured learning tracks.")}
+          ${card("Profile", "Tier and role information", "The portal is designed to keep each member's team, tier, and contribution history organized.")}
         </div>
       </div>
     </section>
@@ -756,7 +892,7 @@ function portalContent(path) {
 
 function renderManageTiers() {
   return `
-    ${pageHero("Restricted", "Manage Tiers", "This hidden page is reserved for HR and MD access after portal authentication is connected.")}
+    ${pageHero("Restricted", "Manage Tiers", "This member operations page is reserved for authorized BFN leadership.")}
     <section class="section">
       <div class="section-inner">
         <div class="card emphasis">
@@ -815,7 +951,7 @@ function wireForms() {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const status = form.querySelector(".form-status");
-      if (status) status.textContent = "Received. The production endpoint can be connected through FORM_ENDPOINT.";
+      if (status) status.textContent = "Received. BFN will review your inquiry and follow up by email.";
       form.reset();
     });
   });
