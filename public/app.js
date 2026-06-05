@@ -17,8 +17,7 @@ const teamMembers = [
   ["Sashitej Palla", "VP, Web Development", "Web Development", "Senior Associate"],
   ["Ackshat Tiwari", "Core Developer", "Web Development", "Senior Associate"],
   ["Kev Wong", "Frontend & UI", "Web Development", "Senior Associate"],
-  ["Niranjana Suresh Preethy", "Frontend & UI", "Web Development", "Senior Associate"],
-  ["Arnav Srivastava", "Regular Member", "General Member", "Member"]
+  ["Niranjana Suresh Preethy", "Frontend & UI", "Web Development", "Senior Associate"]
 ];
 
 const boardAdvisors = Array.from({ length: 9 }, (_, index) => [
