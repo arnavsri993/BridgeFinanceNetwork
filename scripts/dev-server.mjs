@@ -8,7 +8,7 @@ import { dirname } from "node:path";
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const publicDir = join(root, "public");
 const port = Number(process.env.PORT || 4173);
-const host = process.env.HOST || "127.0.0.1";
+const host = process.env.HOST || undefined;
 
 const types = {
   ".css": "text/css; charset=utf-8",
@@ -52,5 +52,6 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`Bridge Finance Network site running at http://${host}:${port}`);
+  const displayHost = host || "localhost";
+  console.log(`Bridge Finance Network site running at http://${displayHost}:${port}`);
 });
