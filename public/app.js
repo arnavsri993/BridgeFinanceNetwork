@@ -4,7 +4,7 @@ const stats = [
   {
     value: "200+",
     label: "Student members",
-    note: "Members learning, competing, and exploring finance"
+    note: "Students learning, competing, and exploring finance"
   },
   {
     value: "3",
@@ -17,10 +17,16 @@ const stats = [
     note: "Career, competitions, leadership, and learning"
   },
   {
-    value: "Nonprofit",
-    label: "Student-led",
-    note: "Built by students, for students"
+    value: "Reviewed",
+    label: "Member access",
+    note: "Public application path with private member resources"
   }
+];
+
+const heroProof = [
+  ["200+", "student members"],
+  ["3", "active chapters"],
+  ["4", "member paths"]
 ];
 
 const aboutStats = [
@@ -946,16 +952,26 @@ function renderHome() {
           <p class="eyebrow">Student-led nonprofit finance network</p>
           <h1>Bridge Finance Network</h1>
           <p>BFN helps motivated students enter finance through structured learning, curated opportunities, research projects, competitions, and chapter leadership.</p>
+          <div class="hero-proof-strip" aria-label="Bridge Finance Network highlights">
+            ${heroProof.map(([value, label]) => `
+              <span>
+                <strong>${escapeHtml(value)}</strong>
+                <em>${escapeHtml(label)}</em>
+              </span>
+            `).join("")}
+          </div>
           <div class="actions centered-actions">
             ${button("/open-roles", "Apply to Join", "primary")}
-            ${button("/opportunities", "Explore Programs", "secondary")}
+            ${button("/opportunities", "View Opportunities", "secondary")}
           </div>
-          <p class="hero-note">Public pages explain BFN. Approved members receive access to opportunities, templates, deadlines, recordings, forms, and team workflows.</p>
+          <p class="hero-note">Public pages explain the network. Approved members receive organized opportunities, templates, deadlines, recordings, forms, and team workflows.</p>
         </div>
       </div>
     </section>
 
     ${statsBand(stats, "overlap-stats")}
+
+    ${commandLibrarySection()}
 
     <section class="section apple-showcase-section">
       <div class="section-inner apple-split">

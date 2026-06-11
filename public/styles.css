@@ -26,8 +26,8 @@
   --shadow-md: 0 18px 46px rgba(0, 0, 0, 0.28);
   --shadow-lg: 0 32px 90px rgba(0, 0, 0, 0.42);
   --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 22px;
+  --radius: 8px;
+  --radius-lg: 14px;
   --container: 1180px;
   --wide: 1320px;
   --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
@@ -276,7 +276,7 @@ p {
 }
 
 .home-hero {
-  min-height: clamp(640px, calc(100svh - 88px), 740px);
+  min-height: clamp(540px, calc(100svh - 124px), 660px);
 }
 
 .home-hero::before {
@@ -304,7 +304,7 @@ p {
   z-index: 1;
   width: min(var(--wide), calc(100% - 40px));
   margin: 0 auto;
-  padding: clamp(48px, 6vw, 74px) 0 clamp(40px, 5vw, 52px);
+  padding: clamp(42px, 5vw, 58px) 0 clamp(30px, 4vw, 38px);
 }
 
 .apple-hero-inner {
@@ -324,13 +324,17 @@ p {
 
 .hero h1 {
   color: white;
+  max-width: 760px;
+  margin-bottom: 16px;
+  font-size: clamp(46px, 5.8vw, 74px);
+  line-height: 1;
   text-wrap: balance;
 }
 
 .hero p {
-  max-width: 680px;
+  max-width: 650px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(19px, 2.2vw, 25px);
+  font-size: clamp(18px, 2vw, 23px);
   line-height: 1.42;
 }
 
@@ -339,6 +343,42 @@ p {
   color: rgba(255, 255, 255, 0.62) !important;
   font-size: 14px !important;
   font-weight: 650;
+}
+
+.hero-proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 650px;
+  margin-top: 20px;
+}
+
+.hero-proof-strip span {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  border: 1px solid rgba(214, 226, 244, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 13px 14px;
+  backdrop-filter: blur(12px);
+}
+
+.hero-proof-strip strong {
+  color: white;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 820;
+  line-height: 1;
+}
+
+.hero-proof-strip em {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .eyebrow {
@@ -397,9 +437,14 @@ button.button {
 }
 
 .button::after {
-  content: "->";
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
   margin-left: 9px;
-  font-size: 13px;
+  transform: rotate(45deg);
   transition: transform 160ms var(--ease);
 }
 
@@ -431,7 +476,7 @@ button.button {
 }
 
 .button:hover::after {
-  transform: translateX(3px);
+  transform: translateX(3px) rotate(45deg);
 }
 
 .button.primary:hover {
@@ -887,12 +932,12 @@ details {
 .stats-band {
   position: relative;
   z-index: 2;
-  padding: 18px clamp(18px, 4vw, 56px) 28px;
+  padding: 12px clamp(18px, 4vw, 56px) 28px;
   background: var(--paper);
 }
 
 .overlap-stats {
-  margin-top: -92px;
+  margin-top: -96px;
 }
 
 .stat-grid {
@@ -1467,12 +1512,19 @@ details {
 }
 
 .apple-program-tile a::after {
-  content: " ->";
-  transition: margin-left 160ms var(--ease);
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  margin-left: 8px;
+  transform: rotate(45deg);
+  transition: transform 160ms var(--ease);
 }
 
 .apple-program-tile a:hover::after {
-  margin-left: 4px;
+  transform: translateX(3px) rotate(45deg);
 }
 
 .apple-program-tile .tag-row {
@@ -2577,6 +2629,10 @@ details p {
   .apple-section-title p:not(.eyebrow),
   .apple-split > div:first-child .lead {
     font-size: 16px;
+  }
+
+  .hero-proof-strip {
+    grid-template-columns: 1fr;
   }
 
   .page-hero-inner,
