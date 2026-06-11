@@ -851,9 +851,9 @@ function commandLibrarySection() {
     <section class="section library-console-section">
       <div class="section-inner console-shell">
         <div class="console-copy">
-          <p class="eyebrow">Member index</p>
-          <h2>A clearer system for finance preparation.</h2>
-          <p class="lead">BFN organizes opportunities, resources, competitions, and chapter work so students can move from interest to practical contribution.</p>
+          <p class="eyebrow">Member pathways</p>
+          <h2>A clearer finance preparation model.</h2>
+          <p class="lead">BFN organizes opportunities, resources, competitions, and chapter work into practical paths students can follow without digging through scattered links.</p>
           <div class="console-chip-row">
             ${["Opportunities", "Resources", "Competitions", "Chapters", "Research", "Leadership"].map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
@@ -861,12 +861,12 @@ function commandLibrarySection() {
         <aside class="command-console" aria-label="BFN member index preview">
           <div class="command-frame-bar">
             <span></span><span></span><span></span>
-            <strong>BFN Index</strong>
+            <strong>BFN Program Index</strong>
           </div>
           <div class="command-search">
-            <span>Search</span>
+            <span>Focus</span>
             <strong>opportunities, templates, chapters, competitions...</strong>
-            <em>K</em>
+            <em>BFN</em>
           </div>
           <div class="command-list">
             ${commandLibrary.map((item) => `
