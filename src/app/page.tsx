@@ -110,6 +110,7 @@ export default function Home() {
   const [selectedDocs, setSelectedDocs] = useState<string[]>(["bank", "tax", "debt"]);
   const [selectedLenderName, setSelectedLenderName] = useState(lenders[0].name);
   const [packetGenerated, setPacketGenerated] = useState(false);
+  const [introSent, setIntroSent] = useState(false);
 
   const selectedDocCount = selectedDocs.length;
   const missingDocs = documents.filter((document) => !selectedDocs.includes(document.id));
@@ -144,8 +145,35 @@ export default function Home() {
       ? "Packet is lender-ready. Send the intro and track lender replies."
       : `Add ${missingDocs[0]?.label.toLowerCase() ?? "the last document"} to unlock a cleaner submission.`;
 
+  const packetText = useMemo(() => {
+    return [
+      "Bridge Finance Network packet",
+      "",
+      "Borrower: Riverside Bakery Co.",
+      `Funding need: ${money.format(amount)}`,
+      `Monthly revenue: ${money.format(monthlyRevenue)}`,
+      `Readiness score: ${readiness}%`,
+      `Recommended lender: ${selectedLender.name}`,
+      `Recommended product: ${selectedLender.product}`,
+      `Pricing: ${selectedLender.cost}`,
+      "",
+      "Summary:",
+      `Riverside Bakery is requesting ${money.format(amount)} after averaging ${money.format(
+        monthlyRevenue,
+      )} in monthly revenue. The best path is ${selectedLender.product.toLowerCase()} through ${
+        selectedLender.name
+      }.`,
+      "",
+      "Missing items:",
+      missingDocs.length
+        ? missingDocs.map((document) => `- ${document.label}`).join("\n")
+        : "- No missing items",
+    ].join("\n");
+  }, [amount, missingDocs, monthlyRevenue, readiness, selectedLender]);
+
   function toggleDocument(id: string) {
     setPacketGenerated(false);
+    setIntroSent(false);
     setSelectedDocs((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
     );
@@ -153,12 +181,35 @@ export default function Home() {
 
   function updateAmount(value: number) {
     setPacketGenerated(false);
+    setIntroSent(false);
     setAmount(value);
   }
 
   function updateRevenue(value: number) {
     setPacketGenerated(false);
+    setIntroSent(false);
     setMonthlyRevenue(value);
+  }
+
+  function generatePacket() {
+    setPacketGenerated(true);
+    setIntroSent(false);
+  }
+
+  function exportPacket() {
+    const blob = new Blob([packetText], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "riverside-bakery-capital-packet.txt";
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function sendIntro() {
+    setPacketGenerated(true);
+    setIntroSent(true);
   }
 
   return (
@@ -243,6 +294,7 @@ export default function Home() {
             className={`${styles.toggleButton} ${urgent ? styles.toggleActive : ""}`}
             onClick={() => {
               setPacketGenerated(false);
+              setIntroSent(false);
               setUrgent((current) => !current);
             }}
             type="button"
@@ -382,15 +434,15 @@ export default function Home() {
           </div>
 
           <div className={styles.actionRow}>
-            <button className={styles.primaryButton} onClick={() => setPacketGenerated(true)} type="button">
+            <button className={styles.primaryButton} onClick={generatePacket} type="button">
               <Sparkles size={18} aria-hidden="true" />
-              Generate packet
+              {packetGenerated ? "Regenerate packet" : "Generate packet"}
             </button>
-            <button className={styles.secondaryButton} type="button">
+            <button className={styles.secondaryButton} onClick={exportPacket} type="button">
               <Download size={18} aria-hidden="true" />
               Export
             </button>
-            <button className={styles.secondaryButton} type="button">
+            <button className={styles.secondaryButton} onClick={sendIntro} type="button">
               <Send size={18} aria-hidden="true" />
               Send intro
             </button>
@@ -400,11 +452,46 @@ export default function Home() {
             <MessageSquareText size={18} aria-hidden="true" />
             <span>
               {packetGenerated
-                ? "Packet summary, lender intro, and missing-item note are ready for the demo."
+                ? introSent
+                  ? `Intro sent to ${selectedLender.name}. The team can now track lender replies.`
+                  : "Packet summary, lender intro, and missing-item note are ready for the demo."
                 : "Generate creates the story judges can follow in under 90 seconds."}
             </span>
           </div>
         </article>
+      </section>
+
+      <section className={styles.auditTrail} aria-label="Demo activity trail">
+        <div>
+          <span className={styles.kicker}>Activity trail</span>
+          <h2>What the judge should notice</h2>
+        </div>
+        <ol>
+          <li>
+            <CheckCircle2 size={18} aria-hidden="true" />
+            Borrower request calibrated to {money.format(amount)}.
+          </li>
+          <li>
+            <CheckCircle2 size={18} aria-hidden="true" />
+            {selectedDocCount} of {documents.length} documents verified.
+          </li>
+          <li>
+            <CheckCircle2 size={18} aria-hidden="true" />
+            {selectedLender.name} selected with {selectedLender.match}% fit.
+          </li>
+          <li className={packetGenerated ? styles.doneTrail : styles.waitTrail}>
+            {packetGenerated ? (
+              <CheckCircle2 size={18} aria-hidden="true" />
+            ) : (
+              <Clock3 size={18} aria-hidden="true" />
+            )}
+            {packetGenerated ? "Capital packet generated." : "Waiting for packet generation."}
+          </li>
+          <li className={introSent ? styles.doneTrail : styles.waitTrail}>
+            {introSent ? <CheckCircle2 size={18} aria-hidden="true" /> : <Clock3 size={18} aria-hidden="true" />}
+            {introSent ? "Lender intro sent." : "Intro not sent yet."}
+          </li>
+        </ol>
       </section>
     </main>
   );
