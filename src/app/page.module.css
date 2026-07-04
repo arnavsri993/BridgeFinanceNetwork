@@ -1,142 +1,485 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+  color: #18211d;
+  background:
+    linear-gradient(180deg, rgba(246, 249, 247, 0.92), rgba(239, 244, 241, 0.98)),
+    #f4f7f5;
 }
 
-.main {
+.hero,
+.workflow,
+.resultGrid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  gap: 28px;
+  padding: 8px 0 22px;
+}
+
+.brand {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandMark {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: #ffffff;
+  border-radius: 8px;
+  background: #0f5b4f;
+}
+
+.brand strong,
+.brand span,
+.scoreCard span,
+.borrowerHeader span,
+.metricGrid span,
+.documentList small {
+  display: block;
+}
+
+.brand strong {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.brand span,
+.scoreCard span,
+.borrowerHeader span,
+.metricGrid span,
+.documentList small,
+.panelTitle p {
+  color: #637069;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: end;
+  gap: 22px;
+}
+
+.heroCopy {
+  max-width: 760px;
+}
+
+.kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: #0f6658;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  max-width: 720px;
+  margin-bottom: 12px;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.heroCopy p {
+  max-width: 680px;
+  color: #4e5b54;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.scoreCard,
+.panel,
+.offerCard,
+.packetCard {
+  border: 1px solid #dce5df;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgba(31, 45, 38, 0.08);
+}
+
+.scoreCard {
+  padding: 18px;
+}
+
+.scoreCard strong {
+  display: block;
+  margin: 3px 0 8px;
+  color: #0f5b4f;
+  font-size: 58px;
+  line-height: 58px;
+}
+
+.scoreCard p,
+.offerSummary,
+.packetPreview p,
+.tradeoff,
+.securityNote,
+.generatedState,
+.pendingState {
+  color: #4f5b54;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.panel,
+.offerCard,
+.packetCard {
+  min-width: 0;
+  padding: 18px;
+}
+
+.lenderPanel {
+  display: flex;
   flex-direction: column;
+}
+
+.panelTitle,
+.offerHeader {
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  gap: 14px;
+  margin-bottom: 16px;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.panelTitle {
+  justify-content: flex-start;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.panelTitle h2,
+.offerHeader h2 {
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.step {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: #ffffff;
+  border-radius: 8px;
+  background: #0f5b4f;
+  font-weight: 800;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+.borrowerHeader {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
+.borrowerHeader div,
+.metricGrid div {
+  padding: 12px;
+  border: 1px solid #e1e8e3;
+  border-radius: 8px;
+  background: #f8faf9;
+}
+
+.borrowerHeader strong,
+.metricGrid strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+.sliderBlock {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.sliderBlock span {
+  color: #344139;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sliderBlock input {
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  accent-color: #0f5b4f;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+.toggleButton,
+.documentList button,
+.lenderList button,
+.primaryButton,
+.secondaryButton {
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
+.toggleButton {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
+  color: #2f3c35;
+  border: 1px solid #d8e2dc;
+  background: #ffffff;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.toggleActive {
+  color: #0f4f46;
+  border-color: #92c5ba;
+  background: #edf8f4;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.documentList,
+.lenderList {
+  display: grid;
+  gap: 9px;
+}
+
+.documentList button {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  color: #5a665f;
+  border: 1px solid #dde6e0;
+  background: #fbfcfb;
+  text-align: left;
+}
+
+.documentReady {
+  color: #0d5146 !important;
+  border-color: #9ccdc2 !important;
+  background: #eff8f5 !important;
+}
+
+.documentList strong {
+  display: block;
+  color: #1f2a24;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.securityNote,
+.tradeoff,
+.generatedState,
+.pendingState {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8faf9;
+}
+
+.lenderList button {
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: #18211d;
+  border: 1px solid #dde6e0;
+  background: #ffffff;
+  text-align: left;
+}
+
+.lenderList button:hover,
+.lenderActive {
+  border-color: #88bdb1 !important;
+  background: #edf8f4 !important;
+}
+
+.lenderList button > span {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #0f4f46;
+  border-radius: 8px;
+  background: #dff0eb;
+  font-weight: 800;
+}
+
+.lenderList strong,
+.lenderList small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lenderList small {
+  color: #657169;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.matchPill {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  color: #0f4f46;
+  border-radius: 8px;
+  background: #dff0eb;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.metricGrid svg {
+  color: #0f5b4f;
+}
+
+.packetPreview {
+  padding: 14px;
+  border: 1px solid #dde6e0;
+  border-radius: 8px;
+  background: #fbfcfb;
+}
+
+.packetPreview ul {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding-left: 20px;
+  color: #344139;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  white-space: nowrap;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: #0f5b4f;
+}
+
+.secondaryButton {
+  color: #243029;
+  border: 1px solid #d7e0da;
+  background: #ffffff;
+}
+
+.generatedState {
+  color: #0f4f46;
+  background: #edf8f4;
+}
+
+.pendingState {
+  background: #f7f2e8;
+}
+
+@media (max-width: 980px) {
+  .heroGrid,
+  .workflow,
+  .resultGrid {
+    grid-template-columns: 1fr;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .scoreCard {
+    max-width: 420px;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@media (max-width: 640px) {
+  .shell {
+    padding: 14px;
   }
 
-  .intro {
-    gap: 16px;
+  .hero {
+    gap: 22px;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .heroCopy h1 {
+    font-size: 40px;
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  .heroCopy p {
+    font-size: 15px;
+    line-height: 24px;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+  .scoreCard strong {
+    font-size: 48px;
+    line-height: 48px;
+  }
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .panel,
+  .offerCard,
+  .packetCard,
+  .scoreCard {
+    padding: 14px;
+  }
+
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .offerHeader {
+    display: grid;
+  }
+
+  .matchPill {
+    width: fit-content;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    flex: 1 1 150px;
   }
 }
